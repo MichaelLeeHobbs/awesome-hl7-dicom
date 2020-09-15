@@ -33,6 +33,7 @@ A curated list of awesome HL7 and DICOM resources, tips, and guides.
 - [~Mirth~ Connect Slack](https://join.slack.com/t/mirthconnect/shared_invite/zt-h6vic1yp-8PZqVxsWm50kjJ8pb4cODw)
 
 ## HL7 Videos
+- [Zen Healthcare IT](https://www.youtube.com/channel/UCc3_CN085u1j31iBJKZF_nw) - Healthcare Interoperability Starts Here
 
 ## HL7 Books
 
