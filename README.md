@@ -24,7 +24,7 @@ A curated list of awesome HL7 and DICOM resources, tips, and guides.
 - [DICOM Software](#dicomsoftware)
 - [DICOM Security](#dicomsecurity)
 
-## HL7 Notes and Tips - Unoffical notes/tips from various devlopers based on their experinces in the field
+## HL7 Notes and Tips - Unoffical notes/tips from various developers based on their experinces in the field
 - Read the damn HL7 messaging spec, you'll learn a lot. - [HL7 General](https://www.hl7.org/implement/standards/index.cfm?ref=nav), [HL7v2](https://www.hl7.org/implement/standards/product_section.cfm?section=13) and [HL7v3](https://www.hl7.org/implement/standards/product_section.cfm?section=14)
 - Expect that the people you're integrating with haven't read the HL7 spec.
 - Follow the standard! While you can make an Accession Number longer than 16 characters it will cause issues!
@@ -44,7 +44,7 @@ A curated list of awesome HL7 and DICOM resources, tips, and guides.
 ## HL7 Tools
 
 ## HL7 Software
-- [Connect](https://github.com/nextgenhealthcare/connect) - (formerly Mirth Connect) The swiss army knife of healthcare integration.
+- [Mirth Connect](https://github.com/nextgenhealthcare/connect) - The swiss army knife of healthcare integration.
 - [HL7 Soup](https://www.hl7soup.com/) - HL7 Interface Engine, Editor and Analysis Software
 
 ## HL7 Security
