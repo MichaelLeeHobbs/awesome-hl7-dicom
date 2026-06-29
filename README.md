@@ -42,7 +42,8 @@ A curated list of awesome HL7 and DICOM resources, tips, and guides.
 ## HL7 Courses
 
 ## HL7 Tools
-
+- [HL7 Toolbox](https://hl7toolbox.com) - Free online HL7 v2 developer tools including HL7 parser, validator, message comparer, formatter, segment reference, and PHI de-identifier.
+  
 ## HL7 Software
 - [Mirth Connect](https://github.com/nextgenhealthcare/connect) - The swiss army knife of healthcare integration.
 - [HL7 Soup](https://www.hl7soup.com/) - HL7 Interface Engine, Editor and Analysis Software
