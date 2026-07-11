@@ -165,10 +165,18 @@ the single most important fact in HL7 tooling right now.
 - [HL7 Inspector Neo](https://www.hl7inspector.com/) - Free browser-based HL7 analyzer and editor.
 - [HL7 Viewer](https://www.hl7viewer.com/) - Free client-side parser. Nothing is uploaded.
 
-> **A word on free web-based HL7 tools:** a message viewer or de-identifier that touches real patient
-> data is a *trust* dependency, not a convenience. "Client-side only, nothing leaves your browser" is
-> a claim, and claims about PHI deserve verification — published source you can actually read, at
-> minimum. Paste synthetic data, not production messages, until you've checked.
+> **Do not paste production HL7 into a web tool you don't control.** Not the viewers above, not any
+> of them. "100% client-side, nothing leaves your browser" is a *claim*, and it is routinely made by
+> pages that also load third-party analytics and session-replay scripts (Microsoft Clarity, FullStory,
+> Hotjar) — which exist precisely to record DOM content and ship it somewhere else. Unless the
+> masking configuration is documented and the source is published, "client-side" and "nothing is
+> captured" are not the same sentence.
+>
+> This bites hardest on the tools that sound safest: an **online PHI de-identifier is a contradiction
+> in terms**, because to de-identify your data it must first receive your data, while it is still
+> identified. Use a local tool — a library, a CLI, or something running on your own machine. If you
+> must use a hosted tool, feed it [synthetic data](#test-data) and nothing else. A HIPAA breach is not
+> worth the ninety seconds you saved.
 
 ## Test Data
 
