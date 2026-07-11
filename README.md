@@ -90,8 +90,11 @@ the single most important fact in HL7 tooling right now.
   [Site](https://openintegrationengine.org/) · [Docs](https://docs.openintegrationengine.org/) ·
   [Discord](https://discord.gg/azdehW2Zrx) (the primary community channel).
 - [BridgeLink](https://github.com/Innovar-Healthcare/BridgeLink) - The other Mirth 4.5.2 fork, from
-  Innovar Healthcare. Single-vendor stewardship, which buys speed at the cost of neutral governance.
-  Pick your tradeoff honestly; both are legitimate.
+  Innovar Healthcare. Both forks are legitimate, both are actively developed, and there is little
+  practical difference between them today — they share the same 4.5.2 ancestry and the same channel
+  format. The distinction is governance (OIE has a steering committee and an Eclipse Foundation
+  application; BridgeLink has single-vendor stewardship), which may matter more over time than it
+  does right now.
 - [Iguana](https://www.interfaceware.com/) - iNTERFACEWARE's engine, the main commercial
   non-Mirth comparator. (commercial)
 - [NextGen Connect](https://github.com/nextgenhealthcare/connect) - The original. Frozen at 4.5.2
@@ -309,7 +312,7 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   for Node. Fills the classic-networking gap in the JS ecosystem.
 - **Node.js** — [dcmtk.js](https://github.com/MichaelLeeHobbs/dcmtk.js) - Type-safe Node bindings for
   the DCMTK CLI tools: wraps 51 binaries, long-lived server processes, a pooled auto-scaling
-  `DicomReceiver`, and a queued `DicomSender`. *(author of this list; alpha)*
+  `DicomReceiver`, and a queued `DicomSender` with backpressure. *(author of this list)*
 - **Node.js** — [multipart-stream](https://github.com/MichaelLeeHobbs/multipart-stream) - Streaming
   consumer for `multipart/related` responses — i.e. what WADO-RS actually hands you — with proper
   timeout/abort/cleanup hygiene. *(author of this list)*
