@@ -167,6 +167,7 @@ the single most important fact in HL7 tooling right now.
   conformance profiling. (commercial)
 - [HL7 Inspector Neo](https://www.hl7inspector.com/) - Free browser-based HL7 analyzer and editor.
 - [HL7 Viewer](https://www.hl7viewer.com/) - Free client-side parser. Nothing is uploaded.
+- [HL7Toolbox](https://hl7toolbox.com) - Free online HL7 v2.x tools including an HL7 parser, message viewer, segment explorer, validation utilities, and developer resources for healthcare integration.
 
 > **Do not paste production HL7 into a web tool you don't control.** Not the viewers above, not any
 > of them. "100% client-side, nothing leaves your browser" is a *claim*, and it is routinely made by
