@@ -33,7 +33,9 @@ Last verified: **July 2026**.
   - [Servers and Archives](#servers-and-archives)
   - [Viewers](#viewers)
   - [DICOM Tools and Utilities](#dicom-tools-and-utilities)
+  - [DICOM Test Data](#dicom-test-data)
   - [DICOM Learning](#dicom-learning)
+- [IHE](#ihe)
 - [Security](#security)
 - [Dead ends](#dead-ends)
 
@@ -121,9 +123,10 @@ the single most important fact in HL7 tooling right now.
 - [ChristopherSchultz/mirth-plugins](https://github.com/ChristopherSchultz/mirth-plugins) - A solid
   grab-bag of community plugins.
 - [mirth-plugin-guide](https://github.com/kpalang/mirth-plugin-guide) - The de-facto guide to writing
-  a Mirth/OIE plugin, plus a [sample plugin](https://github.com/kpalang/mirth-sample-plugin) and a
-  [Maven plugin](https://github.com/kpalang/mirth-plugin-maven-plugin) to build one. Dormant since
-  2024 but still the best reference that exists.
+  a Mirth/OIE plugin, plus a [sample plugin](https://github.com/kpalang/mirth-sample-plugin). Dormant
+  since 2024 but still the best reference that exists. Its companion
+  [Maven plugin](https://github.com/kpalang/mirth-plugin-maven-plugin) is **archived** — read it for
+  the build wiring, don't depend on it.
 - [Mike's Mirth Code](https://github.com/MichaelLeeHobbs/mmc) - Battle-tested JavaScript code
   templates, helpers, and channels pulled from production HL7 integrations. *(author of this list)*
 - [oie-tcp-multi-sender](https://github.com/MichaelLeeHobbs/oie-tcp-multi-sender) - Destination
@@ -132,7 +135,10 @@ the single most important fact in HL7 tooling right now.
 - [jonbartels' SSL/TLS primer](https://gist.github.com/jonbartels/8abd121901eb930f46245d9ef0f5710e) -
   The canonical explainer for Mirth keystore handling. Read before you fight the keystore.
 - [HL7 Spec Extractor](https://github.com/Innovar-Healthcare/HL7_Spec_Extractor) - Extracts HL7 spec
-  tables — useful if you're generating code or validators from the standard.
+  tables, for when you're generating code or validators from the standard. Small and lightly
+  maintained — included because HL7 v2 has no equivalent of
+  [innolitics/dicom-standard](https://github.com/innolitics/dicom-standard), and this is the closest
+  thing to a machine-readable spec that exists outside HAPI's internals.
 
 ## Libraries
 
@@ -145,21 +151,29 @@ the single most important fact in HL7 tooling right now.
   client. Start here.
 - **Python** — [hl7apy](https://github.com/crs4/hl7apy) - Structure-aware: validates against the
   actual v2.x grammars (2.1–2.8.2). Heavier than python-hl7, and worth it when you need real
-  validation.
+  validation. Quiet since early 2025, but the grammars it ships are the reason to use it and those
+  don't rot. (dormant)
 - **Node/TypeScript** — [node-hl7](https://github.com/Bugs5382/node-hl7) - Client, server, and parser
   in TypeScript. The actively maintained JS option — note the standalone `node-hl7-client` repo is
   archived; development continues in this monorepo.
 - **Node/JavaScript** — [simple-hl7](https://github.com/hitgeek/simple-hl7) - Express-style HL7
-  middleware plus MLLP. Low-maintenance but it works and it's small.
+  middleware plus MLLP. Small, stable, and still widely deployed, but untouched since early 2025 —
+  prefer node-hl7 for new work. (dormant)
 - **TypeScript types** —
   [mirth-connect-types](https://github.com/MichaelLeeHobbs/mirth-connect-types) - Type definitions for
   the Mirth/OIE server-side JavaScript (Rhino) User API — the globals and Java classes available
   inside channel scripts. *(author of this list)*
-- **TypeScript** — [integration-engine-api](https://github.com/MichaelLeeHobbs/integration-engine-api) -
-  Type-safe REST API client for NextGen Connect, OIE, and BridgeLink. *(author of this list)*
 
 ## Tools and Validators
 
+- [NIST HL7 v2 Tools](https://hl7v2tools.nist.gov/portal/) - The only free, authoritative v2
+  conformance validator. The [General Validation Tool](https://hl7v2-gvt.nist.gov/gvt/) checks a
+  message against a real conformance profile, not just "does it parse"; the domain suites
+  (immunization, syndromic surveillance, lab) are what US certification actually tests against. The
+  UI is government-grade, and it's still the thing to reach for when "is this message *correct*"
+  needs an answer you can cite. Also embeddable as a
+  [Java library](https://mvnrepository.com/artifact/gov.nist/hl7-v2-validation). **Hosted — synthetic
+  data only.**
 - [HL7 Soup](https://www.hl7soup.com/) - Windows HL7 editor, viewer, and integration host. Free
   viewer tier. (partly commercial)
 - [7Edit](https://7edit.com/) - Long-standing HL7 v2 editor/sender/receiver. (commercial)
@@ -205,8 +219,9 @@ A few canonical starting points, deliberately not a full FHIR list:
 
 ## Learning
 
-- [Zen Healthcare IT — Mirth Connect Resource Center](https://consultzen.com/mirth-connect-resource-center/) -
-  The best free Mirth tutorial hub. [YouTube](https://www.youtube.com/@ZenHealthcareIT)
+- [Zen Healthcare IT — Mirth Connect Resource Center](https://www.zenhealthcareit.com/mirth-connect-resource-center) -
+  The best free Mirth video tutorial hub. Most of it is 2020–2024 and predates the license change, so
+  it teaches the engine, not the current ecosystem. [YouTube](https://www.youtube.com/@ZenHealthcareIT)
 - [Saravanan Subramanian — HL7 tutorials](https://saravanansubramanian.com/hl7/) - The best free
   written introduction to HL7 v2/v3 programming, with Java (HAPI) and .NET (nHapi) tracks.
   [Code](https://github.com/SaravananSubramanian/hl7)
@@ -314,9 +329,6 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 - **Node.js** — [dcmtk.js](https://github.com/MichaelLeeHobbs/dcmtk.js) - Type-safe Node bindings for
   the DCMTK CLI tools: wraps 51 binaries, long-lived server processes, a pooled auto-scaling
   `DicomReceiver`, and a queued `DicomSender` with backpressure. *(author of this list)*
-- **Node.js** — [multipart-stream](https://github.com/MichaelLeeHobbs/multipart-stream) - Streaming
-  consumer for `multipart/related` responses — i.e. what WADO-RS actually hands you — with proper
-  timeout/abort/cleanup hygiene. *(author of this list)*
 - **Rust** — [DICOM-rs](https://github.com/Enet4/dicom-rs) - Pure-Rust parsing and networking,
   including TLS.
 - **Go** — [suyashkumar/dicom](https://github.com/suyashkumar/dicom) - High-performance Go parser plus a
@@ -333,7 +345,7 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   into containerized processing/AI modules. The interesting new entry in this category.
 - [Microsoft dicom-server](https://github.com/microsoft/dicom-server) - Open-source .NET DICOMweb
   server; the engine behind Azure Health Data Services.
-- [Dicoogle](https://github.com/bioinformatics-ua/dicoogle) - Indexing-focused open PACS with a plugin
+- [Dicoogle](https://github.com/dicoogle/dicoogle) - Indexing-focused open PACS with a plugin
   SDK. Strong for research and query-heavy workloads.
 - [Conquest DICOM Server](https://github.com/marcelvanherk/Conquest-DICOM-Server) - Tiny, scriptable,
   Windows-friendly, still quietly running in radiotherapy departments worldwide. (legacy but alive)
@@ -392,6 +404,24 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 - [dcm2niix](https://github.com/rordenlab/dcm2niix) - DICOM → NIfTI/BIDS conversion; the standard in
   neuroimaging.
 
+## DICOM Test Data
+
+The DICOM equivalent of [Synthea](#test-data): real, de-identified, publicly redistributable pixel
+data. Read each collection's licence — "public" is not the same as "yours to ship in a demo."
+
+- [NCI Imaging Data Commons (IDC)](https://portal.imaging.datacommons.cancer.gov/) - The best modern
+  answer. ~99 TB across 176 collections, DICOM-native end to end (including SEG/SR and slide
+  microscopy), with a Python API and cloud-bucket access instead of a zip-and-pray download. Start
+  here when you need volume or modality variety.
+- [The Cancer Imaging Archive (TCIA)](https://www.cancerimagingarchive.net/) - The long-standing
+  NCI-funded archive IDC is largely built on. Still the right entry point when you want a specific
+  disease/modality collection with the clinical metadata attached. Mostly CC-BY, per-collection.
+- [DCMTK DICOM test images](https://support.dcmtk.org/redmine/projects/dcmtk/wiki/DICOM_images) - The
+  curated index of small, weird, standards-exercising files — the ones that break parsers. This is
+  what you want for unit tests, not a 40 GB CT collection.
+- [pydicom-data](https://github.com/pydicom/pydicom-data) - pydicom's test corpus as an installable
+  package. The fastest way to get a handful of valid files into CI without vendoring binaries.
+
 ## DICOM Learning
 
 - [DICOM is Easy](https://dicomiseasy.blogspot.com/) - Roni Zaharia's long-running blog. The best
@@ -406,6 +436,24 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   Survival Guide* — Oleg S. Pianykh, Springer. Still the standard printed introduction.
 - [open-dicom/awesome-dicom](https://github.com/open-dicom/awesome-dicom) - A broader (if less curated)
   DICOM list. If something you need isn't here, look there.
+
+---
+
+# IHE
+
+HL7 and DICOM each tell you what a message may contain. Neither tells you who sends what to whom, in
+what order. That's IHE — profiles that constrain both standards into an actual workflow, and the
+vocabulary your vendors will use in requirements documents whether or not you know it.
+
+- [IHE Technical Frameworks](https://www.ihe.net/resources/technical_frameworks/) - The front door.
+  Domain-organized, freely downloadable, and normative in a way vendor documentation is not.
+- [IHE Radiology profiles](https://profiles.ihe.net/RAD/index.html) - Where **Scheduled Workflow
+  (SWF.b)** lives: the profile that defines how an HL7 order becomes a DICOM Modality Worklist entry
+  and comes back as a study. If you have ever wondered where MWL fits between the RIS and the
+  modality, this is the document.
+- [IHE Profiles wiki](https://wiki.ihe.net/index.php/Profiles) - Plain-language summaries of what each
+  profile is *for*. Read this before the technical framework PDFs, not after. **PIX/PDQ** (patient
+  identifier cross-referencing and demographics query) are the two you'll meet first on the HL7 side.
 
 ---
 
