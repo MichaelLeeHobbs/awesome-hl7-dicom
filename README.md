@@ -163,8 +163,6 @@ the single most important fact in HL7 tooling right now.
   [mirth-connect-types](https://github.com/MichaelLeeHobbs/mirth-connect-types) - Type definitions for
   the Mirth/OIE server-side JavaScript (Rhino) User API — the globals and Java classes available
   inside channel scripts. *(author of this list)*
-- **TypeScript** — [integration-engine-api](https://github.com/MichaelLeeHobbs/integration-engine-api) -
-  Type-safe REST API client for NextGen Connect, OIE, and BridgeLink. *(author of this list)*
 
 ## Tools and Validators
 
@@ -331,9 +329,6 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 - **Node.js** — [dcmtk.js](https://github.com/MichaelLeeHobbs/dcmtk.js) - Type-safe Node bindings for
   the DCMTK CLI tools: wraps 51 binaries, long-lived server processes, a pooled auto-scaling
   `DicomReceiver`, and a queued `DicomSender` with backpressure. *(author of this list)*
-- **Node.js** — [multipart-stream](https://github.com/MichaelLeeHobbs/multipart-stream) - Streaming
-  consumer for `multipart/related` responses — i.e. what WADO-RS actually hands you — with proper
-  timeout/abort/cleanup hygiene. *(author of this list)*
 - **Rust** — [DICOM-rs](https://github.com/Enet4/dicom-rs) - Pure-Rust parsing and networking,
   including TLS.
 - **Go** — [suyashkumar/dicom](https://github.com/suyashkumar/dicom) - High-performance Go parser plus a
