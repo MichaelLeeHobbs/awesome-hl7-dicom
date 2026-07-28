@@ -359,13 +359,36 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 - [3D Slicer](https://www.slicer.org/) - Research imaging platform — segmentation, registration, a huge
   extension library, and a real DICOM database underneath.
 - [VolView](https://github.com/Kitware/VolView) - Kitware's browser-based 3D volume renderer and
-  annotator. Data stays client-side.
+  annotator. Processes data in the browser; ships opt-out Sentry crash reporting (see the note below).
+  [Hosted demo](https://volview.kitware.app/)
 - [DWV](https://github.com/ivmartel/dwv) - Small, dependency-light JS viewer. The good embedding and
   teaching option.
 - [Horos](https://horosproject.org/) - The macOS open-source viewer (an OsiriX fork; OsiriX itself went
   commercial). Now supports Apple Silicon.
 - [MicroDicom](https://www.microdicom.com/) - Capable Windows viewer, free for non-commercial use.
   (freeware, not open source)
+
+> **The hosted viewers here clear a bar the HL7 web tools don't — verify anyway.** OHIF, DWV, and
+> VolView all publish their source, so "it runs in your browser" is a claim you can audit instead of
+> one you have to take on faith. That is the difference between them and
+> [the hosted HL7 tools](#tools-and-validators), and it is why this note is shorter and less alarmed
+> than that one. Read it anyway, because DICOM leaks differently than HL7 does:
+>
+> - **You cannot eyeball a DICOM for PHI.** You can read a `PID` segment before you paste it. You
+>   cannot see the patient name burned into an ultrasound frame, or sitting in a private tag, or
+>   embedded in an SR. The file you think is clean usually isn't.
+> - **The filename is PHI too.** VolView's crash reporting is on by default (toggleable in settings,
+>   no session replay, source is public — this is disclosed, not sneaky). But
+>   `SMITH_JOHN_20240115.dcm` in an error report is a disclosure whether or not a single pixel moved.
+> - **"Client-side" stops being true at the codec boundary.** JPEG 2000 and JPEG-LS are miserable
+>   in-browser, so some viewers quietly round-trip to a server to transcode — see
+>   [the transfer-syntax note](#dicom-notes-and-tips). That is an upload, whatever the front page says.
+> - **The risky control is the URL bar, not the file picker.** Pointing a hosted viewer at your
+>   institution's DICOMweb endpoint hands a third-party page your archive *and* your credentials.
+>   Pushing a study to a public demo archive publishes it.
+>
+> There is no shortage of local viewers above. Use one for real studies, and keep
+> [synthetic data](#dicom-test-data) for anything hosted.
 
 ## DICOM Tools and Utilities
 
