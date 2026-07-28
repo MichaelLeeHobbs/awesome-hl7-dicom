@@ -359,7 +359,7 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 
 - [DCMTK command-line tools](https://support.dcmtk.org/docs/) - `storescu`, `storescp`, `findscu`,
   `movescu`, `dcmdump`, `dcmodify`, `dcmconv`, `img2dcm`, `dcmqrscp`. The test-and-simulate workhorses;
-  learn these before you write any code.
+  learn these before you write any code. [Tool index by category](https://dicom.offis.de/en/dcmtk/dcmtk-tools/)
 - [pynetdicom apps](https://github.com/pydicom/pynetdicom/tree/main/pynetdicom/apps) - `echoscu`,
   `storescp`, `qrscp` and friends, pip-installable and runnable as `python -m pynetdicom echoscu`.
   Ideal for spinning up an SCP inside CI.
@@ -381,6 +381,12 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   precise, and still the gold standard. It and `dicom-validator` disagree in places — if compliance
   matters, run both.
 - [DVTk](https://github.com/dvtk-org/DVTk) - Protocol- and message-level validation plus emulators.
+  [DICOM Editor](https://www.dvtk.org/dicom/editor/) is the standalone piece worth knowing: a GUI for
+  editing attributes and sequence items and exporting to text — handy for hand-building test data. (Windows
+  + .NET only)
+- [Weasis Dicomizer](https://weasis.org/en/tutorials/dicomizer/) - Wraps images, PDFs, MPEG-2/4 video,
+  and STL into DICOM objects with a GUI for the patient/study/series metadata. The friendly alternative
+  to `img2dcm` when someone hands you a scanned report that has to land in the PACS.
 - [dicomweb-client](https://github.com/ImagingDataCommons/dicomweb-client) - Python DICOMweb client
   (QIDO/WADO/STOW). The easiest way to script against an archive.
 - [dcm2niix](https://github.com/rordenlab/dcm2niix) - DICOM → NIfTI/BIDS conversion; the standard in
