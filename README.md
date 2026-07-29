@@ -201,6 +201,20 @@ the single most important fact in HL7 tooling right now.
 - [Synthea](https://github.com/synthetichealth/synthea) - Synthetic patient generator producing full
   longitudinal records as HL7 v2, FHIR, and CCDA. The answer to "where do I get realistic test data
   that isn't PHI." [Site](https://synthetichealth.github.io/synthea/)
+- [NIST Immunization Test Suite](https://hl7v2-iz-cdc-testing.nist.gov/iztool/) - Test messages bound
+  to machine-readable conformance profiles and used for ONC certification. Narrow — immunization
+  `VXU`/`QBP`/`RSP` only — but the rare case where the sample message and the spec it conforms to are
+  the same artifact rather than two documents that drifted apart.
+- [VA VistA Imaging HL7 specifications](https://www.va.gov/health/imaging/hl7.asp) - The PACS-facing
+  interface specs, plus a list of approved PACS interfaces refreshed April 2026. Unusual in being a
+  large real-world HL7 interface whose specification is public and maintained. More in the
+  [VA Documentation Library](https://www.va.gov/vdl/).
+
+> **A sample message is a hypothesis, not a specification.** Vendor-supplied examples routinely
+> disagree with the vendor's own conformance spec, and even a public, well-maintained spec describes a
+> baseline that local customization departs from — VistA is the standard illustration, where the
+> published interface is real and every site's feed still differs from it. Build against what you
+> actually receive on the wire, and treat any example message as something to verify.
 
 ## FHIR
 
@@ -422,6 +436,11 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 - [Weasis Dicomizer](https://weasis.org/en/tutorials/dicomizer/) - Wraps images, PDFs, MPEG-2/4 video,
   and STL into DICOM objects with a GUI for the patient/study/series metadata. The friendly alternative
   to `img2dcm` when someone hands you a scanned report that has to land in the PACS.
+- [gdcmconv](https://manpages.debian.org/testing/libgdcm-tools/gdcmconv.1.en.html) - GDCM's repair
+  tool. Rewrites broken DICOM into something parsable and forces transfer-syntax conversion; the
+  companion to [gdcmData](#known-bad-and-unusual-dicom) and the first thing to reach for when a vendor
+  hands you a file nothing will open. Note GDCM's own doc site is long dead — the Debian manpage is
+  the surviving reference.
 - [dicomweb-client](https://github.com/ImagingDataCommons/dicomweb-client) - Python DICOMweb client
   (QIDO/WADO/STOW). The easiest way to script against an archive.
 - [dcm2niix](https://github.com/rordenlab/dcm2niix) - DICOM → NIfTI/BIDS conversion; the standard in
@@ -444,6 +463,26 @@ data. Read each collection's licence — "public" is not the same as "yours to s
   what you want for unit tests, not a 40 GB CT collection.
 - [pydicom-data](https://github.com/pydicom/pydicom-data) - pydicom's test corpus as an installable
   package. The fastest way to get a handful of valid files into CI without vendoring binaries.
+
+### Known-bad and unusual DICOM
+
+Valid files prove your parser works. These prove it survives. Everything below is a file some vendor
+actually shipped, or a specific correctness trap the standard sets for you.
+
+- [gdcmData](https://github.com/malaterre/gdcmdata) - **The known-bad corpus.** 232 files that broke a
+  real implementation, named so you know how before you open them:
+  `PICKER-16-MONO2-No_DicomV3_Preamble.dcm`, `IllegalGroup2ImplicitTS.dcm`,
+  `GE_GENESIS-16-MONO2-WrongLengthItem.dcm`, `AMIInvalidPrivateDefinedLengthSQasUN.dcm`,
+  `MR_Philips_Intera_No_PrivateSequenceImplicitVR.dcm`. This is GDCM's own regression suite, so none
+  of it is hypothetical. If you are writing a parser, this is the set that matters.
+  [Downloads](https://sourceforge.net/projects/gdcm/files/gdcmData/)
+- [David Clunie's test images](https://www.dclunie.com/#Images) - Correctness traps rather than broken
+  files, from the editor of the standard. Each set targets one thing implementations get wrong:
+  [character sets](https://www.dclunie.com/images/charset/index.html),
+  [deflate transfer syntax](https://www.dclunie.com/images/compressed/index.html),
+  [signed pixel ranges](https://www.dclunie.com/images/signedrange/index.html), and
+  [pixel spacing](https://www.dclunie.com/images/pixelspacingtestimages.zip). Pairs with
+  [the notes above](#dicom-notes-and-tips), which describe these same traps in prose.
 
 ## DICOM Learning
 
