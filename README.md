@@ -381,6 +381,8 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   commercial). Now supports Apple Silicon.
 - [MicroDicom](https://www.microdicom.com/) - Capable Windows viewer, free for non-commercial use.
   (freeware, not open source)
+- [Grenzwert](https://grenzwert.net/) - Browser-based DICOM and medical volume viewer using
+  WebAssembly and WebGPU (commercial)
 
 > **The hosted viewers here clear a bar the HL7 web tools don't — verify anyway.** OHIF, DWV, and
 > VolView all publish their source, so "it runs in your browser" is a claim you can audit instead of
