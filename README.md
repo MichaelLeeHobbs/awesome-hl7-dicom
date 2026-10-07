@@ -381,8 +381,11 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
   commercial). Now supports Apple Silicon.
 - [MicroDicom](https://www.microdicom.com/) - Capable Windows viewer, free for non-commercial use.
   (freeware, not open source)
-- [dcmage](https://dcmage.com/) - Web native DICOM workbench - viewer, tag editor, anonymizer.
-  Also available as a docker image for self-hosting or Mac app.
+- [dcmage](https://github.com/kiwiprojekt/dcmage-release) - **Maintainer's top pick for DICOM tag
+  viewing and editing.** Workbench with a tag editor, anonymizer, and 3D viewer, available as a
+  local Docker deployment or macOS app. Docker use is free for internal purposes, including
+  commercial work, with external hosting and redistribution restrictions
+  ([license](https://dcmage.com/license/)). (freeware, closed source)
 
 > **The hosted viewers here clear a bar the HL7 web tools don't — verify anyway.** OHIF, DWV, and
 > VolView all publish their source, so "it runs in your browser" is a claim you can audit instead of
@@ -405,6 +408,9 @@ DICOM punishes assumptions. These are the assumptions it punishes most often.
 >
 > There is no shortage of local viewers above. Use one for real studies, and keep
 > [synthetic data](#dicom-test-data) for anything hosted.
+>
+> **For dcmage, prefer a pinned local Docker deployment.** Use synthetic data with the
+> [hosted app](https://app.dcmage.com/), and verify de-identification results before sharing them.
 
 ## DICOM Tools and Utilities
 
