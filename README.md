@@ -114,6 +114,10 @@ the single most important fact in HL7 tooling right now.
   manual, filling the gap the official docs haven't yet.
 - [ballista](https://github.com/kayyagari/ballista) - Admin-client launcher for Mirth/OIE/BridgeLink.
   Solves the Java Web Start pain that everyone hits on day one.
+- [mirthSync](https://saga-it.com/products/mirthsync) - CLI that pulls and pushes channels, code
+  templates and configuration between an engine and a Git repo, which is what makes CI/CD on
+  Mirth/OIE practical rather than aspirational. EPL-1.0,
+  [source](https://github.com/SagaHealthcareIT/mirthsync).
 - [TLS Manager Plugin](https://github.com/NovaMap-Health/tls-manager-plugin) - Free TLS for HTTP/WS/TCP
   connectors, sponsored by NovaMap + Diridium and donated to OIE. The open replacement for NextGen's
   paid SSL Manager. [Docs](https://www.novamap.health/docs/tls-plugin)
@@ -182,6 +186,11 @@ the single most important fact in HL7 tooling right now.
 - [HL7 Inspector Neo](https://www.hl7inspector.com/) - Free browser-based HL7 analyzer and editor.
 - [HL7 Viewer](https://www.hl7viewer.com/) - Free client-side parser. Nothing is uploaded.
 - [HL7Toolbox](https://hl7toolbox.com) - Open-source (MIT), fully client-side HL7 v2 web tools: parser, viewer, validator, and message compare, plus a rule-based field de-identifier for scrubbing test messages. No uploads, and the tool pages load no analytics. ([source](https://github.com/healthinterops/hl7toolbox))
+- [HL7 Workbench](https://saga-it.com/hl7workbench) - Browser-based HL7 v2 parser with a validation
+  pane, alongside a v2/FHIR spec browser. The reference pages (segments, data types, tables,
+  message structures, FHIR resources and IGs, OID registry) are open to anonymous users; the
+  parser and validator need a free account, and the v2 Builder/Analyzer are paid tiers. No
+  third-party analytics or session-replay on the tool pages. Beta. (partly commercial)
 
 > **Do not paste production HL7 into a web tool you don't control.** Not the viewers above, not any
 > of them. "100% client-side, nothing leaves your browser" is a *claim*, and it is routinely made by
