@@ -209,6 +209,8 @@ the single most important fact in HL7 tooling right now.
   interface specs, plus a list of approved PACS interfaces refreshed April 2026. Unusual in being a
   large real-world HL7 interface whose specification is public and maintained. More in the
   [VA Documentation Library](https://www.va.gov/vdl/).
+- [hl7-v2-samples](https://github.com/AckHarbor/hl7-v2-samples) - Fictional HL7 v2.5 ADT, ORM, ORU and
+  ACK AA/AE/AR (with ERR) samples plus a FHIR R4 Patient, MIT/CC BY 4.0, no PHI
 
 > **A sample message is a hypothesis, not a specification.** Vendor-supplied examples routinely
 > disagree with the vendor's own conformance spec, and even a public, well-maintained spec describes a
