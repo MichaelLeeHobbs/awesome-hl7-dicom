@@ -114,6 +114,9 @@ the single most important fact in HL7 tooling right now.
   manual, filling the gap the official docs haven't yet.
 - [ballista](https://github.com/kayyagari/ballista) - Admin-client launcher for Mirth/OIE/BridgeLink.
   Solves the Java Web Start pain that everyone hits on day one.
+- [mirthSync](https://github.com/SagaHealthcareIT/mirthsync) - CLI that pulls and pushes channels, code
+  templates, and configuration between Mirth/OIE and a Git repo. The piece that makes CI/CD on an
+  engine practical. EPL-1.0.
 - [TLS Manager Plugin](https://github.com/NovaMap-Health/tls-manager-plugin) - Free TLS for HTTP/WS/TCP
   connectors, sponsored by NovaMap + Diridium and donated to OIE. The open replacement for NextGen's
   paid SSL Manager. [Docs](https://www.novamap.health/docs/tls-plugin)
@@ -182,7 +185,7 @@ the single most important fact in HL7 tooling right now.
 - [HL7 Inspector Neo](https://www.hl7inspector.com/) - Free browser-based HL7 analyzer and editor.
 - [HL7 Viewer](https://www.hl7viewer.com/) - Free client-side parser. Nothing is uploaded.
 - [HL7Toolbox](https://hl7toolbox.com) - Open-source (MIT), fully client-side HL7 v2 web tools: parser, viewer, validator, and message compare, plus a rule-based field de-identifier for scrubbing test messages. No uploads, and the tool pages load no analytics. ([source](https://github.com/healthinterops/hl7toolbox))
-- [AckHarbor Spyglass](https://ackharbor.com/hl7-message-viewer/) - Free browser-based HL7 v2 viewer that explains each segment and field, source-available under PolyForm Noncommercial ([source](https://github.com/AckHarbor/ackharbor-spyglass))
+- [AckHarbor Spyglass](https://ackharbor.com/hl7-message-viewer/) - Free browser-based HL7 v2 viewer that explains each segment and field, source-available under PolyForm Noncommercial. **Hosted — synthetic data only.** ([source](https://github.com/AckHarbor/ackharbor-spyglass))
 
 > **Do not paste production HL7 into a web tool you don't control.** Not the viewers above, not any
 > of them. "100% client-side, nothing leaves your browser" is a *claim*, and it is routinely made by
@@ -228,6 +231,9 @@ A few canonical starting points, deliberately not a full FHIR list:
 - [HAPI FHIR](https://hapifhir.io/) - The de-facto open-source Java FHIR client/server.
 - [Firely .NET SDK](https://github.com/FirelyTeam/firely-net-sdk) - The official .NET FHIR SDK.
 - [Inferno](https://inferno.healthit.gov/) - ONC's FHIR/US Core conformance test kit.
+- [tx.fhir.org](https://tx.fhir.org/) - HL7's public reference FHIR terminology server (SNOMED CT,
+  LOINC, RxNorm, and more). The one the IG Publisher and validator use; good for testing code lookups
+  and `$validate-code` before you stand up your own.
 - [LinuxForHealth hl7v2-fhir-converter](https://github.com/LinuxForHealth/hl7v2-fhir-converter) and
   [Microsoft FHIR-Converter](https://github.com/microsoft/FHIR-Converter) - v2 → FHIR conversion, if
   you'd rather not hand-map every segment.
