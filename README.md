@@ -182,6 +182,7 @@ the single most important fact in HL7 tooling right now.
 - [HL7 Inspector Neo](https://www.hl7inspector.com/) - Free browser-based HL7 analyzer and editor.
 - [HL7 Viewer](https://www.hl7viewer.com/) - Free client-side parser. Nothing is uploaded.
 - [HL7Toolbox](https://hl7toolbox.com) - Open-source (MIT), fully client-side HL7 v2 web tools: parser, viewer, validator, and message compare, plus a rule-based field de-identifier for scrubbing test messages. No uploads, and the tool pages load no analytics. ([source](https://github.com/healthinterops/hl7toolbox))
+- [AckHarbor Spyglass](https://ackharbor.com/hl7-message-viewer/) - Free browser-based HL7 v2 viewer that explains each segment and field, source-available under PolyForm Noncommercial ([source](https://github.com/AckHarbor/ackharbor-spyglass))
 
 > **Do not paste production HL7 into a web tool you don't control.** Not the viewers above, not any
 > of them. "100% client-side, nothing leaves your browser" is a *claim*, and it is routinely made by
