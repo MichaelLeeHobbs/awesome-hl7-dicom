@@ -230,6 +230,9 @@ A few canonical starting points, deliberately not a full FHIR list:
   segment/field mapping guide. This is the bridge between the two halves of your career.
 - [HAPI FHIR](https://hapifhir.io/) - The de-facto open-source Java FHIR client/server.
 - [Firely .NET SDK](https://github.com/FirelyTeam/firely-net-sdk) - The official .NET FHIR SDK.
+- [atomic-ehr/codegen](https://github.com/atomic-ehr/codegen) - Generates typed FHIR models in
+  TypeScript, Python (Pydantic), and C# from FHIR packages, IGs, or local StructureDefinitions, so your
+  profiles become types instead of hand-written interfaces. MIT
 - [Inferno](https://inferno.healthit.gov/) - ONC's FHIR/US Core conformance test kit.
 - [tx.fhir.org](https://tx.fhir.org/) - HL7's public reference FHIR terminology server (SNOMED CT,
   LOINC, RxNorm, and more). The one the IG Publisher and validator use; good for testing code lookups
