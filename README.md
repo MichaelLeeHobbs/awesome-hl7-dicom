@@ -162,7 +162,7 @@ the single most important fact in HL7 tooling right now.
 - **Node/JavaScript** — [simple-hl7](https://github.com/hitgeek/simple-hl7) - Express-style HL7
   middleware plus MLLP. Small, stable, and still widely deployed, but untouched since early 2025 —
   prefer node-hl7 for new work. (dormant)
-- **Node/TypeScript** - [@cosyte/hl7](https://github.com/cosyte/hl7) - HL7 v2 parser, builder and
+- **Node/TypeScript** — [@cosyte/hl7](https://github.com/cosyte/hl7) - HL7 v2 parser, builder and
   serializer that accepts vendor-quirky input, reports what it tolerated as warning codes, and returns
   fields by name rather than position. Zero runtime dependencies. Pair with
   [@cosyte/mllp](https://github.com/cosyte/mllp) for an MLLP client and server with ACK correlation,
